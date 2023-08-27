@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 10vw;
+            height: 15vh;
+            background-color: green; 
+            transition: 4s;
+        }
+
+        div:hover{
+            width:80vw
+        }
+
+        #idLinear {
+            transition-timing-function: linear;
+            background-color: Red; 
+        }
+
+        #idEase {
+            transition-timing-function: ease;
+            background-color: hsl(30, 100%, 50%, 1); 
+        }
+
+        #idEaseIn {
+            transition-timing-function: ease-in; /*처음부분이 천천*/
+            background-color: hsl(60, 100%, 50%, 1); 
+        }
+
+        #idEaseOut {
+            transition-timing-function: ease-out;
+            background-color: hsl(120, 100%, 50%, 1); 
+        }
+
+        #idEaseInOut {
+            transition-timing-function: ease-in-out;
+            background-color: hsl(240, 100%, 50%, 1); 
+        }
+
+    </style>
+
+    <script>
+        const mOk =(pGbn) => {
+            // let lEase = document.getElementById("idEase");
+            let arrDiv = document.querySelectorAll('.clsDiv'); //query가 cls 다 모음
+            let lBtn = document.getElementById('idBtn');
+            let lwith;
+
+            if(lBtn.textContent=="시작") {
+                lBtn.textContent="초기화";
+                lwidth="80vw";
+            }
+            else {
+                lBtn.textContent="시작";
+                lwidth="10vw";
+            }
+                
+            // alert(arrDiv.length); //alert: arrDiv의 길이를 출력
+            for(let i=0; i< arrDiv.length; i++)
+            {
+                arrDiv[i].style.width=lwidth;
+                
+            }
+        }
+        
+//             arrDiv.forEach((pVal,pIdx,pArr)=>{
+//             pVal.style.width="80vw";
+// //const는 상수
+//             });
+
+        // function mOk(pGbn){
+
+        // }
+    </script>
+</head>
+<body>
+    <button id="idBtn" onclick="mOk();">시작</button>
+
+    <div> welcome to trans World!!</div>
+    <div class="clsDiv" id="idLinear"> linear </div>
+    <div class="clsDiv" id="idEase"> ease </div>
+    <div class="clsDiv" id="idEaseIn"> ease-in </div>
+    <div class="clsDiv" id="idEaseOut"> ease-out </div>
+    <div class="clsDiv" id="idEaseInOut"> ease-in-out </div>
+    
+</body>
+</html>

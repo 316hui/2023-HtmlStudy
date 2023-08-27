@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #idRed{
+             width : 80vw;
+             height: 20vh;
+             border: 2px ridge #FF0000;
+             background-color : hsl(120,100%, 50%);
+             border-radius: 10px 20px 30px 40px; /*시계방향*/
+        }
+        #idMgt{
+            width : 80vw; /*비율 view width*/
+            height : 20vh;
+            background-color : hsla(300, 100%, 50%, 0.2); /*마지막은 불투명도!! 0일수록 배경색, hsl에 a 붙여주기*/
+            border : 2px solid green;
+            border-radius: 20px 0px 20px 0px; 
+
+        }
+        body {
+            background-color: hsl(240, 90%, 90%); /*240 이 파랑최대, 채도%, 밝기%*/
+        }
+    </style>
+</head>
+<body>
+   <div id="idRed"> 초록색</div>
+   <div id="idMgt"> 분홍색</div> <!--아이디만 할당-->
+</body>
+</html>

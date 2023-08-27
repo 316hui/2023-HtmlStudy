@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idPrnt{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: hsla(50, 100%, 50%, 1);
+        }
+
+        #idChld{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: hsl(0, 100%, 31%, 1);
+        }
+    </style>
+    <script>
+
+        var idIntrvl; //전역변수
+
+        function mOk(){
+            
+            let lBtn = document.getElementById("idBtn")
+            let lChld = document.getElementById("idChld");
+
+            if(lBtn.textContent.trim()=="start") { //버튼 안  내용물 //trim은 공백을 없애는 함수
+                lBtn.textContent="stop";
+                lChld.style.top="0%";
+                lChld.style.left="0%";
+                idIntrvl = setInterval(mIntrvl, 100);
+
+                function mIntrvl(){
+                    // alert(lChld.style.top)
+                    alert("ddd");
+                    let lTop=lChld.style.top;
+                    let lLeft=lChld.style.left;
+                    let iTop= Number(lTop.substring(0, lTop.length-1));
+                    let iLeft= Number(lLeft.substring(0, lLeft.length-1));
+                    iTop = (iTop + 2)%52;
+                    iLeft = (iLeft +2)%52;
+                    console.log(iLeft)
+                    lChld.style.top = iTop + "%";
+                    lChld.style.left = iLeft + "%";
+                }
+            }
+            else { //stop
+                clearInterval(idIntrvl);
+                lBtn.textContent="start";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <button id="idBtn" onclick="mOk();">start</button>
+    <div id="idPrnt">
+        <div id="idChld">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th {
+            border : 1px solid blue;
+        }
+        table {
+            width : 80%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color :green;
+            height: 70px;
+            text-align: left;
+            vertical-align: top;
+            color: whitesmoke
+        }
+        td {
+            height : 40px;
+            text-align: right;
+            vertical-align: bottom;
+            padding: 20px; /*벽과의 간격 패딩*/
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <colgroup>
+            <col span="1" style="background-color: lightcoral; width: 20%; ">
+            <col span="1" style="background-color: lightcyan; width : 30%;">
+            <col span="1" style="background-color: rgb(255, 236, 155); width : 50%;">
+        </colgroup>
+        <tr>
+            <th> name </th>
+            <th> tel </th>
+            <th> address </th>
+        </tr>
+        <tr>
+            <td> 나윤서 </td>
+            <td> 010-1234-5678 </td>
+            <td> 대구 수성구 </td>
+        </tr>
+        <tr>
+            <td> 김지민 </td>
+            <td> 010-1234-5678 </td>
+            <td> 대구 동구 </td>
+        </tr>
+         <tr>
+            <td> 손민서 </td>
+            <td> 010-1234-5678 </td>
+            <td> 대구 동구 </td>
+        </tr>
+    </table>
+</body>
+</html>

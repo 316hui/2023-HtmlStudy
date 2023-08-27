@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idPrnt {
+            width: 80vw;
+            height: 120vh;
+            background-color: hsla(120,100%,90%,1);
+            padding: 100px;
+            border: red dashed 3px;
+            position: relative;
+        }
+        #idChld {
+            width: 80px;
+            height: 80px;
+            background-color: hsla(240, 100%, 50%, 1);
+        }
+        @keyframes mAni2 {
+            from {background-color: red; top:0%; left:0%;}
+            to {background-color: blue; top:50%; left:50%;}
+        }
+        @keyframes mAniMulti{
+            0% {background-color: red; top:0%; left:0%;} /*20%.. 같이 몇 퍼센트 진행됬을 때 인지*/
+            20% {background-color: orange; top:10%; left:10%;}
+            40% {background-color: yellow; top:20%; left:20%;}
+            60% {background-color: green; top:30%; left:30%;}
+            80% {background-color: blue; top:40%; left:40%;}
+            100% {background-color:hsl(240, 100%, 30%); top:50%; left:50%;}
+        }
+    </style>
+    <script>
+        function mOk(pGbn) {
+            let lChld = document.getElementById("idChld");
+            
+            
+            if(pGbn=="stat") {
+                lChld.style.position="static";
+                lChld.style.animation = "mAniMulti 4s forwards"; //fowards: 마지막 프레임을 유지
+            }
+            else if(pGbn=="rel") {     //원래 위한곳이 기준
+                lChld.style.position="relative";
+                lChld.style.animation = "mAniMulti 4s forwards";
+            }
+            else if(pGbn=="abs") { //부모기준
+                lChld.style.position="absolute";
+                lChld.style.animation = "mAniMulti 4s forwards 3 alternate"; //fowards 뒤에 몇 번 반복할건지 작성. (infinite, 3)
+            }
+            else if(pGbn=="fix") { //화면기준
+                lChld.style.position="fixed";
+                lChld.style.animation = "mAniMulti 4s forwards";
+            }
+            else if(pGbn=="reset") {
+                location.reload();
+            }
+        }
+//relative : 현재위치, 현재 문서 기준
+//fixed ; 화면을 운직여도 같이 따라감.
+//abosolute: 부모의 영역이 기준 왼쪾 귀퉁이 부터.
+    
+    </script>
+</head>
+<body>
+    <button onclick="mOk('stat')">static</button>
+    <button onclick="mOk('rel')">relative</button>
+    <button onclick="mOk('abs')">absolute</button>
+    <button onclick="mOk('fix')">fixed</button>
+    <button onclick="mOk('reset')">reset</button>
+    <h1> Are you Ready?</h1>
+    <h2> Stay foolish!</h2>
+    <h2> Don't give up!!</h2>
+    <h2> Just do it!!</h2>
+    <div id="idPrnt"> <!--레이아웃 같은 느낌 (부모)-->
+        <div id="idChld">
+
+        </div>
+    </div>
+</body>
+</html>

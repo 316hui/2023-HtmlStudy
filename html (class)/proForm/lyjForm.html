@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title> let's study about form!! </title>
+        <style> 
+            h1 {
+                color: green;
+                text-align: center;
+            }
+            input{
+                background-color: yellow;
+            }
+            .idGRD{
+                color: red;
+            }
+            .idGRD2{
+                color: green;
+                display: inline-block;
+                width:13%;
+                text-align: right;
+            }
+            div{
+                margin-bottom : 5px;
+            }
+            
+        </style>
+        <script>
+            function mCheck(){
+                var lfm = document.fm;
+                var lgrd = lfm.grd; //학년 졍보 가져오기
+                var lCls = lfm.cls; //반 정보 가져오기
+                var lNum = lfm.num; //
+                var lAcc = lfm.acc;           
+
+                if(lgrd.value=="")
+                {
+                    alert("please select your grade!!");
+                    return false;
+                }
+
+                else if(lCls.value=="" || lCls.value == 0 )
+                {
+                    alert("please select your class!!");
+                    lCls.focus();
+                    return false;
+                }
+
+                else if(lNum.value=="" || isNaN(lNum.value))
+                {
+                    alert("please select your class!!");
+                    lNum.focus();
+                    return false;
+                }
+                //번호가 미입력되거나 숫자값이 아니면(isNaN()) 필터링.
+                
+                else if(lAcc.value=="" || length != 4)
+                {
+                    alert("please select your Access code!!");
+                    lAcc.focus();
+                    return false;
+                }
+                
+                else
+                {    fm.submit(); //서버로 데이터 전송.
+                    alert("send seccess")
+                } 
+
+            }
+            
+
+
+        </script>
+    </head>
+    <body>
+        <h1> welcome to Form's world!! </h1>
+        <form name="fm" method="post" action="http://arabbit.link/dirSw/insrtHstry.php" onsubmit="return false">
+        <div>
+        <label class="idGRD2"> 학년: </label>
+            <!-- 구분자1:form 구분자2:radio, 인증키:3521-->
+            <input id = "idRGD1" type="radio" name="grd" value="1">
+            <label for = "idRGD1" class="idGRD"> 1학년 </label>
+
+            <input id = "idRGD2" type="radio" name="grd" value="2">
+            <label for = "idRGD2" class="idGRD"> 2학년 </label>
+
+            <input id = "idRGD3" type="radio" name="grd" value="3">
+            <label for = "idRGD3" class="idGRD"> 3학년 </label>
+            <!-- 
+            <input type="text" name="grd" placeholder="숫자만">
+            -->
+        </div>   
+
+        <div>
+            <label class="idGRD2"> &nbsp; 반: </label>
+            <!-- 
+            <input type="text" name="cls" placeholder="숫자만">
+            구분자1:html 구분자2:select, 인증키:3521
+            -->
+            
+            <select name="cls">
+                <option value="0" onsubmit="return false"> 몇반? </option>
+                <option value="1"> 1반 </option>
+                <option value="2"> 2반 </option>
+                <option value="3"> 3반 </option>
+                <option value="4"> 4반 </option>
+            </select>
+        </div> 
+
+        <div>
+            <label class="idGRD2"> 번호: </label>
+            <input type="text" name="num" placeholder="숫자만">
+        </div>    
+
+        <div>
+            <label class="idGRD2"> 구분자1: </label>
+            <input type="text" name="gbn1">
+        </div> 
+
+        <div>
+            <label class="idGRD2"> 구분자2: </label>
+            <input type="text" name="gbn2">
+        </div>  
+
+        <div>
+            <label class="idGRD2"> 인증키: </label>
+            <input type="password" name="accessKey">
+        </div>
+
+        <div style="text-align: center;">
+            <input type="submit" value="보내기" onclick="mCheck();">
+        </div>
+
+        </form>
+    </body>
+</html>

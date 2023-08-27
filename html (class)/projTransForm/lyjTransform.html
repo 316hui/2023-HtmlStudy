@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idObj {
+            width: 80px;
+            height: 80px;
+            background-color: hsla(240, 60%, 60%, 1);
+            transition: 4s ease-in;
+        }
+        #idPrnt {
+            width: 90vw; /*90퍼센트 너비가 차지*/
+            height: 80vh;
+            padding: 100px;
+            border: red double 2px;
+
+        }
+
+    </style>
+    <script>
+        function mOk(pGbn) {
+            let lObj = document.getElementById("idObj");
+            if(pGbn=="tran") {
+                lObj.style.transform=`translate(50px, 80px)`; // ` 안에 실행한 함수 결과를 넣음
+            }
+            // else if(pGbn=="init") {
+            //     lObj.style.transform=`translate(0px, 0px)`; // ` 안에 실행한 함수 결과를 넣음
+            // }
+            // else if(pGbn=="rot") {
+            //     lObj.style.transform=`rotate(150deg)`; // ` 안에 실행한 함수 결과를 넣음
+            // }
+            
+            if(pGbn=="scl") {
+                 lObj.style.transform=`scale(0,5, 3)`
+             }
+            else if(pGbn=="skwx") {
+                 lObj.style.transform=`skewX(45deg)`
+             }
+            else if(pGbn=="skwy") {
+                 lObj.style.transform=`skewY(45deg)`
+             }
+            else if(pGbn=="rotX") {
+                 lObj.style.transform=`rotateX(135deg)`
+             }
+            else if(pGbn=="rotY") {
+                 lObj.style.transform=`rotateY(135deg)`
+             }
+            else if(pGbn=="rotZ") {
+                 lObj.style.transform=`rotateZ(135deg)`
+             }
+            else if(pGbn=="init") {
+                 location.reload(); /*새로고침*/
+             }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="mOk('tran')">Transpose</button>
+    <button onclick="mOk('init')">init</button> <!--초기화뜻-->
+    <button onclick="mOk('rot')">rotate</button>
+    <button onclick="mOk('scl')">scale</button>
+    <button onclick="mOk('skwx')">skewX</button>
+    <button onclick="mOk('skwy')">skewY</button>
+    <button onclick="mOk('rotX')">rotX</button>
+    <button onclick="mOk('rotY')">rotY</button>
+    <button onclick="mOk('rotZ')">rotZ</button>
+    <div id="idPrnt">
+        <div id="idObj"></div>
+    </div>
+</body>
+</html>
